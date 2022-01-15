@@ -1,7 +1,7 @@
 def simplificado(fracoes):
     """
-    Parâmetro: Uma fração (em formato de string) 
-    Return: Uma fração irredutível ou um número inteiro, ambos em formato de string.
+    Parâmetro: Uma lista contendo frações (em formato de string) 
+    Return: Uma lista que pode conter números inteiros ou frações irredutíveis, ambos em formato de string.
     """
     simplificados = list()
     for fracao in fracoes:
