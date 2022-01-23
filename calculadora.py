@@ -86,28 +86,30 @@ class Equacao(object):
 
         return simplificado(raizes)
 
+if __name__ == '__main__':
+    while True:
+        try:
+            coeficientes = list()
+            grauDaEquacao = int(input('Qual o grau da equação? '))
+            for c in range(grauDaEquacao):
+                e = grauDaEquacao - c
+                coeficiente = float(input(f'Digite o coeficiente do x**{e}: '))
+                coeficientes.append(coeficiente)
+            termoIndependente = float(input('Digite o termo independente: '))
+            coeficientes.append(termoIndependente)
 
-while True:
-    try:
-        coeficientes = list()
-        grauDaEquacao = int(input('Qual o grau da equação? '))
-        for c in range(grauDaEquacao):
-            e = grauDaEquacao - c
-            coeficiente = float(input(f'Digite o coeficiente do x**{e}: '))
-            coeficientes.append(coeficiente)
-        termoIndependente = input('Digite o termo independente: ')
-        coeficientes.append(termoIndependente)
+            equacao = Equacao(coeficientes)
+            raizes = equacao.raizes()
+            
+            print('S = {', end='')
+            for pos, raiz in enumerate(raizes):
+                if pos == len(raizes) - 1:
+                    print(raiz, end='}\n')
+                else:
+                    print(raiz, end=', ')
+            if len(raizes) == 0:
+                print('}')
 
-        equacao = Equacao(coeficientes)
-        raizes = equacao.raizes()
-        
-        print('S = {', end='')
-        for pos, raiz in enumerate(raizes):
-            if pos == len(raizes) - 1:
-                print(raiz, end='}\n')
-            else:
-                print(raiz, end=', ')
-
-    except KeyboardInterrupt:
-        print('\nPrograma finalizado!')
-        break
+        except KeyboardInterrupt:
+            print('\nPrograma finalizado!')
+            break
